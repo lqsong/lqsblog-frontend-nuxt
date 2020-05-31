@@ -8,6 +8,13 @@ export default function ({ $axios, store, redirect, error }) {
     // console.log('1、Making request to ' + JSON.stringify(config))
     // console.log('1、request to ' + config.url)
 
+    // 解决get请求浏览器缓存问题
+    if (config.method === 'get') {
+      const url = config.url
+      const index = url.indexOf('?')
+      index === -1 ? config.url = url + '?_=' + (new Date().getTime()) : config.url = url + '&_=' + (new Date().getTime())
+    }
+
     // 请根据实际情况修改
     if (store.getters.token) {
       // store.getters.token 加载时提前获取
