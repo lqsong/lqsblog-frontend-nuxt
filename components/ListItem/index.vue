@@ -1,0 +1,135 @@
+<template>
+    <div>
+        <template v-for="item in list">
+
+            <div v-if="item.thumb.length === 4" :key="item.id + '-' + item.type" class="lqsblog-list">
+                <div class="lqsblog-list-content py-lg-1">
+                    <div class="lqsblog-list-body">
+                        <div class="text-lg h-2x">
+                            <nuxt-link class="lqsblog-list-title" :to="getUrl(item.type, item.id)">
+                            {{ item.title }}
+                            </nuxt-link>
+                        </div>
+                    </div>
+                    <div class="lqsblog-list-footer d-flex">
+                        <div class="text-xs text-muted">
+                            <template v-if="item.type === 1">
+                                <span class="d-inline-block">
+                                    <nuxt-link class="text-muted" :to="getClassUrl(item.type, item.category.alias)">
+                                        {{ item.category.name }}
+                                    </nuxt-link>
+                                </span>
+                                <i class="text-primary px-2">•</i>
+                            </template>
+                            <span class="d-inline-block">{{ item.addtime }}</span>
+                        </div>
+                        <div class="ml-auto text-xs text-muted"></div>
+                    </div>
+
+                    <div class="lqsblog-list-images row row-sm mt-3">
+                        <div v-for="(thumb, index) in item.thumb" :key="index" class="col-3">
+                        <div class="lqsblog-media">
+                            <nuxt-link class="lqsblog-media-content" :to="getUrl(item.type, item.id)" :style="{'background-image': 'url(' + getHref(thumb) + ')'}"></nuxt-link>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div v-else-if="item.thumb.length < 1" :key="item.id + '-' + item.type" class="lqsblog-list">
+                <div class="lqsblog-list-content py-lg-2">
+                    <div class="lqsblog-list-body">
+                    <div class="text-lg h-2x">
+                        <nuxt-link class="lqsblog-list-title" :to="getUrl(item.type, item.id)">
+                            {{ item.title }}
+                        </nuxt-link>
+                    </div>
+                    <div class="d-none d-md-block text-sm text-muted mt-3">
+                        <div class="h-3x">{{ item.description }}</div>
+                    </div>
+                    </div>
+                    <div class="lqsblog-list-footer d-flex">
+                        <div class="text-xs text-muted">
+                            <template v-if="item.type === 1">
+                                <span class="d-inline-block">
+                                    <nuxt-link class="text-muted" :to="getClassUrl(item.type, item.category.alias)">
+                                        {{ item.category.name }}
+                                    </nuxt-link>
+                                </span>
+                                <i class="text-primary px-2">•</i>
+                            </template>
+                            <span class="d-inline-block"> {{ item.addtime }}</span>
+                        </div>
+                        <div class="ml-auto text-xs text-muted "></div>
+                    </div>
+                </div>
+            </div>
+
+            <div v-else :key="item.id + '-' + item.type" class="lqsblog-list">
+                <div class="lqsblog-list-content py-lg-2">
+
+                    <div class="lqsblog-list-body">
+                    <div class="text-lg h-2x">
+                        <nuxt-link class="lqsblog-list-title" :to="getUrl(item.type, item.id)">
+                            {{ item.title }}
+                        </nuxt-link>
+                    </div>
+                    <div class="d-none d-md-block text-sm text-muted mt-3">
+                        <div class="h-3x">{{ item.description }}</div>
+                    </div>
+                    </div>
+
+                    <div class="lqsblog-list-footer d-flex">
+                        <div class="text-xs text-muted">
+                            <template v-if="item.type === 1">
+                                <span class="d-inline-block">
+                                    <nuxt-link class="text-muted" :to="getClassUrl(item.type, item.category.alias)">
+                                        {{ item.category.name }}
+                                    </nuxt-link>
+                                </span>
+                                <i class="text-primary px-2">•</i>
+                            </template>
+                            <span class="d-inline-block">{{ item.addtime }}</span>
+                        </div>
+                        <div class="ml-auto text-xs text-muted "></div>
+                    </div>
+
+                </div>
+
+                <div class="lqsblog-list-img col-3">
+                <div class="lqsblog-media shadow">
+                    <nuxt-link class="lqsblog-media-content" :to="getUrl(item.type, item.id)" :style="{'background-image': 'url(' + getHref(item.thumb[0]) + ')'}"></nuxt-link>
+                </div>
+                </div>
+
+            </div>
+
+        </template>
+    </div>
+</template>
+<script>
+import { getTypeUrl, getTypeClassUrl, getThumbNoPic } from '@/utils/url'
+export default {
+  name: 'ListItem',
+  props: {
+    // 列表
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  methods: {
+    getUrl (type, id) {
+      return getTypeUrl(type, id)
+    },
+    getClassUrl (type, cname) {
+      return getTypeClassUrl(type, cname)
+    },
+    getHref (url) {
+      return getThumbNoPic(url)
+    }
+  }
+}
+</script>
