@@ -89,7 +89,7 @@
                   <div class="text-xs text-muted  border-top border-light py-4 mt-4">
                       © {{ siteCreationTime }}-present All Rights Reserved<span class="px-2">⋅</span>Developed by
                       <a :href="developedBy.url" target="_blank">{{ developedBy.name }}</a><span class="px-2">⋅</span>
-                      <a href="http://www.miitbeian.gov.cn/" rel="external nofollow" target="_blank">{{ ICP }}</a>
+                      <a href="https://beian.miit.gov.cn/" rel="external nofollow" target="_blank">{{ ICP }}</a>
                   </div>
               </div>
             </div>
