@@ -24,16 +24,34 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css' },
       /* 编辑器 CSS S  */
-      { rel: 'stylesheet', href: 'https://unpkg.com/@toast-ui/editor@2.0.0/dist/toastui-editor-viewer.css' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css' }
+      /* // 3.0.0 */
+      { rel: 'stylesheet', href: 'https://cdn.staticfile.org/prism/1.23.0/themes/prism.min.css' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/@toast-ui/editor@3.0.0/dist/toastui-editor.css' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/@toast-ui/editor-plugin-code-syntax-highlight@3.0.0/dist/toastui-editor-plugin-code-syntax-highlight.css' }
+
+      /* // 2.2.0
+      { rel: 'stylesheet', href: 'https://cdn.staticfile.org/codemirror/5.62.0/codemirror.css' },
+      { rel: 'stylesheet', href: 'https://uicdn.toast.com/editor/2.2.0/toastui-editor-viewer.min.css' },
+      { rel: 'stylesheet', href: 'https://cdn.staticfile.org/highlight.js/9.18.3/styles/github.min.css' }
+      */
       /* 编辑器 CSS E  */
     ],
     script: [
       { src: 'https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js' },
       { src: 'https://cdn.staticfile.org/popper.js/1.16.0/umd/popper.min.js' },
       /* 编辑器 js S  */
-      { src: 'https://unpkg.com/@toast-ui/editor@2.0.0/dist/toastui-editor-viewer.js' },
-      { src: 'https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js' },
+      /* // 3.0.0 */
+      { src: 'https://uicdn.toast.com/editor/3.0.0/toastui-editor-all.min.js' },
+      { src: 'https://uicdn.toast.com/editor-plugin-code-syntax-highlight/3.0.0/toastui-editor-plugin-code-syntax-highlight-all.min.js' },
+      { src: 'https://cdn.staticfile.org/prism/1.23.0/prism.min.js' },
+      { src: 'https://cdn.staticfile.org/prism/1.23.0/components/prism-clojure.min.js' },
+
+      /* // 2.2.0
+      { src: 'https://cdn.staticfile.org/highlight.js/9.18.3/highlight.min.js' },
+      { src: 'https://cdn.staticfile.org/highlight.js/9.18.3/languages/clojure.min.js' },
+      { src: 'https://uicdn.toast.com/editor/2.2.0/toastui-editor-viewer.min.js' },
+      { src: 'https://uicdn.toast.com/editor-plugin-code-syntax-highlight/1.0.0/toastui-editor-plugin-code-syntax-highlight-all.min.js' },
+      */
       /* 编辑器 js E  */
       { src: 'https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js', async: true, defer: true },
       { src: '//at.alicdn.com/t/font_1713545_ma6b7rl92c.js', async: true, defer: true },

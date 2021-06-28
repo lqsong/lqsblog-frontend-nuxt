@@ -117,14 +117,16 @@ export default {
   methods: {
     // 设置 markdown 详情
     setEditorViewer () {
-      if (typeof toastui !== 'undefined' && this.viewer === null) {
-        // eslint-disable-next-line no-undef
-        const { codeSyntaxHighlight } = toastui.Editor.plugin
-        // eslint-disable-next-line no-undef
-        this.viewer = new toastui.Editor({
+      if (typeof window.toastui !== 'undefined' && this.viewer === null) {
+        const { codeSyntaxHighlight } = window.toastui.Editor.plugin
+        const { Prism } = window // 3.0.0
+        this.viewer = window.toastui.Editor.factory({ // 3.0.0
+        // this.viewer = new window.toastui.Editor({ // 2.2.0
           el: document.getElementById('viewer'),
+          viewer: true,
           initialValue: this.content,
-          plugins: [codeSyntaxHighlight]
+          plugins: [[codeSyntaxHighlight, { highlighter: Prism }]] // 3.0.0
+          // plugins: [codeSyntaxHighlight] // 2.2.0
         })
       }
     }
