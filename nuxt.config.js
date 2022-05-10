@@ -55,7 +55,9 @@ module.exports = {
       /* 编辑器 js E  */
       { src: 'https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js', async: true, defer: true },
       { src: '//at.alicdn.com/t/font_1713545_ma6b7rl92c.js', async: true, defer: true },
-      { src: '/js/common.js', async: true, defer: true }
+      { src: '/js/common.js', async: true, defer: true },
+      /* 百度统计 */
+      { src: 'https://hm.baidu.com/hm.js?fbad933e32f60c6e1522c7313e0808f8', async: true, defer: true }
     ]
   },
   router: {
@@ -87,7 +89,8 @@ module.exports = {
     '~/plugins/axios',
     { src: '~/plugins/router', mode: 'client' },
     { src: '~/plugins/baidu-seo-push', mode: 'client' },
-    { src: '~/plugins/cnzz', mode: 'client' }
+    { src: '~/plugins/cnzz', mode: 'client' },
+    { src: '~/plugins/baidu-tongji', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules
